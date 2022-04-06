@@ -11,8 +11,8 @@
   DTS:LocaleID="9226"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="66"
-  DTS:VersionGUID="{20776376-8870-4F7A-BC68-AAF686864B23}">
+  DTS:VersionBuild="70"
+  DTS:VersionGUID="{2365B73B-E150-44FE-B9F6-DFE7694C25D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -6913,6 +6913,10 @@ where [refTable].[vendedor] = ?</property>
           Id="Package\DIM_Cuenta\Buscar registros nuevos"
           TopLeft="300,141" />
         <NodeLayout
+          Size="113,42"
+          Id="Package\DIM_Cuenta\Update"
+          TopLeft="765,273" />
+        <NodeLayout
           Size="114,42"
           Id="Package\DIM_Cuenta\RETAIL"
           TopLeft="339,27" />
@@ -6921,31 +6925,9 @@ where [refTable].[vendedor] = ?</property>
           Id="Package\DIM_Cuenta\Insert"
           TopLeft="131,277" />
         <NodeLayout
-          Size="113,42"
-          Id="Package\DIM_Cuenta\Update"
-          TopLeft="765,273" />
-        <EdgeLayout
-          Id="Package\DIM_Cuenta.Paths[Salida de origen de OLE DB]"
-          TopLeft="395.75,69">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72"
-              Start="0,0"
-              End="0,64.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="204,42"
+          Id="Package\DIM_Cuenta\Buscar cambios en valores"
+          TopLeft="720,140" />
         <EdgeLayout
           Id="Package\DIM_Cuenta.Paths[Salida de entradas no coincidentes de búsqueda]"
           TopLeft="365,183">
@@ -6982,10 +6964,6 @@ where [refTable].[vendedor] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="204,42"
-          Id="Package\DIM_Cuenta\Buscar cambios en valores"
-          TopLeft="720,140" />
         <EdgeLayout
           Id="Package\DIM_Cuenta.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="491,161.5">
@@ -7008,6 +6986,28 @@ where [refTable].[vendedor] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="10.9309765625,5,199.638046875,12.1953125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Cuenta.Paths[Salida de origen de OLE DB]"
+          TopLeft="395.75,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72"
+              Start="0,0"
+              End="0,64.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7038,7 +7038,28 @@ where [refTable].[vendedor] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DIM_Cuenta\Buscar registros nuevos">
+    design-time-name="Package\DIM_Cuenta\RETAIL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Cuenta\Insert">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Cuenta\Buscar cambios en valores">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -7061,23 +7082,25 @@ where [refTable].[vendedor] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DIM_Cuenta\RETAIL">
+    design-time-name="Package\DIM_Cuenta\Buscar registros nuevos">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
       </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_Cuenta\Insert">
-    <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[Cuenta]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -7091,17 +7114,21 @@ where [refTable].[vendedor] = ?</property>
           Id="Package\DIM_DetallePago\Insert"
           TopLeft="131,277" />
         <NodeLayout
+          Size="199,42"
+          Id="Package\DIM_DetallePago\Buscar cambio de valores"
+          TopLeft="740,145" />
+        <NodeLayout
           Size="177,42"
           Id="Package\DIM_DetallePago\Comando de OLE DB"
           TopLeft="757,277" />
         <NodeLayout
-          Size="114,42"
-          Id="Package\DIM_DetallePago\RETAIL"
-          TopLeft="339,27" />
-        <NodeLayout
           Size="191,42"
           Id="Package\DIM_DetallePago\Buscar registros nuevos"
           TopLeft="298,144" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package\DIM_DetallePago\RETAIL"
+          TopLeft="339,27" />
         <EdgeLayout
           Id="Package\DIM_DetallePago.Paths[Salida de origen de OLE DB]"
           TopLeft="394.75,69">
@@ -7121,7 +7148,33 @@ where [refTable].[vendedor] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_DetallePago.Paths[Salida de entradas no coincidentes de búsqueda1]"
+          TopLeft="842.5,187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,90"
+              Start="0,0"
+              End="0,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-106.8890234375,35.15234375,213.778046875,12.1953125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7160,10 +7213,6 @@ where [refTable].[vendedor] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="199,42"
-          Id="Package\DIM_DetallePago\Buscar cambio de valores"
-          TopLeft="740,145" />
         <EdgeLayout
           Id="Package\DIM_DetallePago.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="489,165.5">
@@ -7188,48 +7237,11 @@ where [refTable].[vendedor] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DIM_DetallePago.Paths[Salida de entradas no coincidentes de búsqueda1]"
-          TopLeft="842.5,187">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,90"
-              Start="0,0"
-              End="0,82.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,82.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-106.8890234375,35.15234375,213.778046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\DIM_DetallePago\Insert">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_DetallePago\RETAIL">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7264,49 +7276,67 @@ where [refTable].[vendedor] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_DetallePago\Buscar cambio de valores">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[DetallePago]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_DetallePago\RETAIL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DIM_FormaPago">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="191,42"
-          Id="Package\DIM_FormaPago\Buscar registros nuevos"
-          TopLeft="298,144" />
+          Size="113,42"
+          Id="Package\DIM_FormaPago\Update"
+          TopLeft="720,264" />
+        <NodeLayout
+          Size="125,42"
+          Id="Package\DIM_FormaPago\Búsqueda"
+          TopLeft="709,147" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package\DIM_FormaPago\RETAIL"
+          TopLeft="339,27" />
         <NodeLayout
           Size="107,42"
           Id="Package\DIM_FormaPago\Insert"
           TopLeft="131,277" />
         <NodeLayout
-          Size="113,42"
-          Id="Package\DIM_FormaPago\Update"
-          TopLeft="720,264" />
-        <NodeLayout
-          Size="114,42"
-          Id="Package\DIM_FormaPago\RETAIL"
-          TopLeft="339,27" />
-        <EdgeLayout
-          Id="Package\DIM_FormaPago.Paths[Salida de origen de OLE DB]"
-          TopLeft="394.75,69">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,75"
-              Start="0,0"
-              End="0,67.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,67.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="191,42"
+          Id="Package\DIM_FormaPago\Buscar registros nuevos"
+          TopLeft="298,144" />
         <EdgeLayout
           Id="Package\DIM_FormaPago.Paths[Salida de entradas no coincidentes de búsqueda]"
           TopLeft="363,186">
@@ -7339,14 +7369,10 @@ where [refTable].[vendedor] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-204.82701171875,41.8535825545171,231.1540234375,16"
+              BoundingBox="-196.1390234375,41.8535825545171,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="125,42"
-          Id="Package\DIM_FormaPago\Búsqueda"
-          TopLeft="709,147" />
         <EdgeLayout
           Id="Package\DIM_FormaPago.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="489,166.5">
@@ -7369,6 +7395,28 @@ where [refTable].[vendedor] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="6.43097656249999,5,199.638046875,12.1953125"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_FormaPago.Paths[Salida de origen de OLE DB]"
+          TopLeft="394.75,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7399,7 +7447,20 @@ where [refTable].[vendedor] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DIM_FormaPago\Buscar registros nuevos">
+    design-time-name="Package\DIM_FormaPago\RETAIL">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_FormaPago\Búsqueda">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -7435,15 +7496,25 @@ where [refTable].[vendedor] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DIM_FormaPago\RETAIL">
+    design-time-name="Package\DIM_FormaPago\Buscar registros nuevos">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[FormaPago]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -7453,109 +7524,29 @@ where [refTable].[vendedor] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="107,42"
-          Id="Package\DIM_Vendedor\Insert"
-          TopLeft="131,387" />
+          Size="191,42"
+          Id="Package\DIM_Vendedor\Buscar registros nuevos"
+          TopLeft="297,182" />
         <NodeLayout
           Size="177,42"
           Id="Package\DIM_Vendedor\Comando de OLE DB"
-          TopLeft="756,373" />
+          TopLeft="761,317" />
+        <NodeLayout
+          Size="107,42"
+          Id="Package\DIM_Vendedor\Insert"
+          TopLeft="339,307" />
         <NodeLayout
           Size="114,42"
           Id="Package\DIM_Vendedor\RETAIL"
           TopLeft="333,1" />
         <NodeLayout
-          Size="195,42"
-          Id="Package\DIM_Vendedor\Gestión de valores Nulos"
-          TopLeft="295,79" />
-        <NodeLayout
-          Size="191,42"
-          Id="Package\DIM_Vendedor\Buscar registros nuevos"
-          TopLeft="297,182" />
-        <EdgeLayout
-          Id="Package\DIM_Vendedor.Paths[Salida de entradas no coincidentes de búsqueda]"
-          TopLeft="392.5,224">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-208,163"
-              Start="0,0"
-              End="-208,155.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,77.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,77.5"
-                    Point2="0,81.5"
-                    Point3="-4,81.5" />
-                  <mssgle:LineSegment
-                    End="-204,81.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-204,81.5"
-                    Point2="-208,81.5"
-                    Point3="-208,85.5" />
-                  <mssgle:LineSegment
-                    End="-208,155.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-210.8890234375,86.5,213.778046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DIM_Vendedor.Paths[Salida de columna derivada]"
-          TopLeft="392.5,121">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61"
-              Start="0,0"
-              End="0,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DIM_Vendedor.Paths[Salida de origen de OLE DB]"
-          TopLeft="391.25,43">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,36"
-              Start="0,0"
-              End="0,28.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="199,42"
           Id="Package\DIM_Vendedor\Buscar cambio en valores"
           TopLeft="750,187" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\DIM_Vendedor\Gestión de valores Nulos"
+          TopLeft="295,79" />
         <EdgeLayout
           Id="Package\DIM_Vendedor.Paths[Salida de entradas coincidentes de búsqueda]"
           TopLeft="488,205.5">
@@ -7581,32 +7572,127 @@ where [refTable].[vendedor] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DIM_Vendedor.Paths[Salida de entradas no coincidentes de búsqueda1]"
-          TopLeft="847,229">
+          Id="Package\DIM_Vendedor.Paths[Salida de columna derivada]"
+          TopLeft="392.5,121">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,144"
+              EndConnector="0,61"
               Start="0,0"
-              End="0,136.5">
+              End="0,53.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,136.5" />
+                    End="0,53.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-106.8890234375,62.15234375,213.778046875,12.1953125"
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Vendedor.Paths[Salida de origen de OLE DB]"
+          TopLeft="391.25,43">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Vendedor.Paths[Salida de entradas no coincidentes de búsqueda1]"
+          TopLeft="849.5,229">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88"
+              Start="0,0"
+              End="0,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-106.8890234375,34.15234375,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DIM_Vendedor.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="392.5,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-106.8890234375,31.65234375,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DIM_Vendedor\Buscar registros nuevos">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dim].[Vendedor]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DIM_Vendedor\Insert">
     <Properties>
@@ -7634,7 +7720,7 @@ where [refTable].[vendedor] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DIM_Vendedor\Buscar registros nuevos">
+    design-time-name="Package\DIM_Vendedor\Buscar cambio en valores">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -8129,98 +8215,6 @@ where [refTable].[vendedor] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_Cuenta\Buscar cambios en valores">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dim].[Cuenta]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_FormaPago\Búsqueda">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dim].[FormaPago]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_DetallePago\Buscar cambio de valores">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dim].[DetallePago]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\DIM_Vendedor\Buscar cambio en valores">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dim].[Vendedor]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
