@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PerfilamientoDeDatos.xml"
+  DTS:DTSID="{6354EDCF-1AED-451D-9D22-B76A54D1F163}"
+  DTS:CreationName="FILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="C:\Users\jevo1\OneDrive\Escritorio\Clase de hoy\20220402\PerfilamientoDeDatos.xml" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PerfilamientoDeDatos_DWH.xml"
+  DTS:DTSID="{E8E39CF4-DD22-461B-A6A8-239C8CA1FEB5}"
+  DTS:CreationName="FILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:FileUsageType="1"
+      DTS:ConnectionString="C:\Users\jevo1\OneDrive\Escritorio\Clase de hoy\20220402\PerfilamientoDeDatos_DWH.xml" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
